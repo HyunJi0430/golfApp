@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "421517148537",
+    "firebase_url": "https://my-app-d03d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "my-app-d03d1",
+    "storage_bucket": "my-app-d03d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421517148537:android:8c46ebf1978d70bd172fa8",
+        "android_client_info": {
+          "package_name": "com.golfapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421517148537-ih5tivqrld541aus6bf9pg4lopns31ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVNQQe1Y1LwxDy41cq5AlPAnMyi-xxMh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421517148537-ih5tivqrld541aus6bf9pg4lopns31ek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "421517148537-1jeo3c3b3j0jto8bq3mfrbk00vclevtb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.name.myloginapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421517148537:android:decf8eddfa16b032172fa8",
+        "android_client_info": {
+          "package_name": "com.mygolfapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421517148537-ih5tivqrld541aus6bf9pg4lopns31ek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVNQQe1Y1LwxDy41cq5AlPAnMyi-xxMh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421517148537-ih5tivqrld541aus6bf9pg4lopns31ek.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "421517148537-1jeo3c3b3j0jto8bq3mfrbk00vclevtb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.name.myloginapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
