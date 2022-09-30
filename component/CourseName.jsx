@@ -19,7 +19,20 @@ const renderItem = (item) => {
         </View>
     )
 }
-const CourseName = ({ course }) => {
+const CourseName = ({ course, setInsertData, insertData }) => {
+
+    const handleInsert = (i) => {
+        const zipcode = course[i].zipcode02? course[i].zipcode02:course[i].zipcode01;
+        const address = course[i].address02? course[i].address02:course[i].address01;
+        setInsertData({
+            ...insertData,
+            zipcode,
+            address,
+            course: course[i].coursename,
+            tel: course[i].tel
+        })
+    }
+
   return (
     <>
         <Picker
@@ -27,7 +40,7 @@ const CourseName = ({ course }) => {
             renderItem={renderItem}
             itemWidth={itemWidth}
             initialIndex={1}
-            onChange={ item => console.log(item)}
+            onChange={ item => handleInsert(item)}
             style={{ postion:'absolute', left: -140, zIndex: 1}}
         />
     </>

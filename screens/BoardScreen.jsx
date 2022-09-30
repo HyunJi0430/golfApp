@@ -26,6 +26,7 @@ const BoardScreen = ({ navigation }) => {
       zipcode: '',
       course: '',
       address: '',
+      tel: '',
       money: '',
       membercount: '',
       mchar: 'b', //f,m,b
@@ -35,6 +36,10 @@ const BoardScreen = ({ navigation }) => {
   const [course, setCourse] = useState([]);
   const [btColor, setBtColor] = useState(['#0c751e','','']);
   
+  const [mcount, setMcount] = useState(0);
+  const [sgender, setSgender] = useState('b');
+  const [smoney, setSmoney] = useState(0);
+
   const getCourse = (zone) => {
         setLoading(false);
         db.transaction(txn => {
@@ -84,10 +89,13 @@ const BoardScreen = ({ navigation }) => {
      let colors = [];
      if(e===1){
         colors = ['', '#0c751e', ''];
+        setSgender('f');
      }else if(e===2){
         colors = ['', '', '#0c751e'];
+        setSgender('m');
      }else{
         colors = ['#0c751e', '', ''];
+        setSgender('b');
      }
      setBtColor(colors)
   }
@@ -97,6 +105,19 @@ const BoardScreen = ({ navigation }) => {
        getCourse('서울');
     }   
   },[]);
+
+  const handleUpdate = () => {
+      setInsertData({
+         ...insertData,
+         sdate,
+         money: smoney,
+         membercount: mcount,
+         mchar: sgender,
+         mcount:0
+      });
+  }
+
+  console.log(insertData);
 
    return (
     <SafeAreaView style={styles.container}>
@@ -114,19 +135,25 @@ const BoardScreen = ({ navigation }) => {
           {/* 골프장선택 */}
           <View style={styles.formGroup}>
              <Text style={[styles.label, {height: 50}]}>코스선택</Text>    
-             <CourseName course={ course } />
+             <CourseName course={ course } 
+                         insertData={insertData}  
+                         setInsertData={setInsertData} />
           </View>
 
           {/* 시작일시선택 */}
           <View style={styles.formGroup}>
              <Text style={[styles.label, {height: 50}]}>시작일선택</Text>    
-             <StartTimePicker />
+             <StartTimePicker 
+                     insertData={insertData}  
+                     setInsertData={setInsertData} />
           </View>
 
           {/* 마침일시선택 */}
           <View style={styles.formGroup}>
              <Text style={[styles.label, {height: 50}]}>마침일선택</Text>    
-             <EndTimePicker />
+             <EndTimePicker 
+                     insertData={insertData}  
+                     setInsertData={setInsertData}/>
           </View>
 
           {/* 인원입력 */}
@@ -140,6 +167,7 @@ const BoardScreen = ({ navigation }) => {
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="number-pad"
+                onChangeText={(e) => setMcount(e)}
                  />
               </View>   
           </View>         
@@ -165,6 +193,7 @@ const BoardScreen = ({ navigation }) => {
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="number-pad"
+                onChangeText={e => setSmoney(e)} 
               /><Text style={{fontSize:18, marginLeft:5}}>원</Text>
               </View>
           </View>
@@ -177,6 +206,7 @@ const BoardScreen = ({ navigation }) => {
                  buttonTitle="등록"
                  backgroundColor="#0c751e"
                  color="#fff"
+                  onPress={ handleUpdate}
               />
           </View>
       </View>

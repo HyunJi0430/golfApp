@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import ko from 'date-fns/esm/locale/ko'
 import DateTimePickerModal from 'react-native-modal-datetime-picker'
 
-const StartTimePicker = () => {
+const StartTimePicker = ({ insertData, setInsertData }) => {
   const [stDate, setStdate] = useState(new Date());
   const [mode, setMode] = useState('date'); // 팝업창 종류
   const [visible, setVisible] = useState(false); //처음에 안보이게 설정
@@ -15,8 +15,13 @@ const StartTimePicker = () => {
   }
 
   const onConfirm = (selectedDate) => {
+    const sdate = format(selectedDate, 'yyyy-MM-dd HH:mm')
     setVisible(false);
     setStdate(selectedDate);
+    setInsertData({
+      ...insertData,
+      sdate
+  });
   }
 
   const onCancle = () => {
